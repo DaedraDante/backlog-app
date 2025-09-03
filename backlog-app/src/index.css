@@ -10,8 +10,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --main-background-color: #1f1e1e;
+  --secondary-color: #323233;
   --primary-color: #493aa0;
-  --secondary-color: #ff6e40;
 }
 
 .app-title {
@@ -43,7 +43,7 @@
 .game-card {
   background-color: var(--secondary-color);
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 22px 6px rgba(0, 0, 0, 0.1);
   padding: 16px;
   margin: 10px 0;
   max-width: 280px;
