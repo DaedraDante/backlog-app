@@ -54,6 +54,8 @@
   align-items: center;
   justify-content: flex-start;
   transition: transform 0.2s, box-shadow 0.2s;
+
+
 }
 .game-card h2{
   font-size: 1.5rem;
