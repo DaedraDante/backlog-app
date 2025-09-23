@@ -13,7 +13,7 @@ function SearchBar({gamesData,handleAddGameButton,isSearchBarVisible,setIsSearch
     if(!gameQuery) {
       return gamesData;
     }
-    return gamesData.filter((game) => game.gameTitle.includes(gameQuery));
+    return gamesData.filter((game) => game.gameTitle.toLowerCase().includes(gameQuery.toLowerCase()));
   };
   const filteredgamesData = getFilteredgamesData(gameQuery, gamesData)
   
