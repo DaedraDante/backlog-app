@@ -182,7 +182,29 @@ const gamesData = [
     gameImage: 'https://images.igdb.com/igdb/image/upload/t_cover_big_2x/coa7oc.jpg'
   }
 ];
-
+const userGameList = [
+  {
+    id: 1,
+    gameTitle: 'God of War 2018',
+    gameGenre: 'Hack N Slash',
+    gameImage: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.jpg'
+  },
+  {
+    id: 2,
+    gameTitle: 'Dead Cells',
+    gameGenre: 'Roguelike',
+    gameImage: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co7jfv.jpg'
+  },
+  {
+    id: 3,
+    gameTitle: 'Minecraft',
+    gameGenre: 'Sandbox',
+    gameImage: 'https://upload.wikimedia.org/wikinews/en/7/7a/Minecraft_game_cover.jpeg'
+  }
+];
 
 
 export default gamesData;
+export {userGameList};
+
+

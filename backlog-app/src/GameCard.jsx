@@ -1,8 +1,10 @@
 
 function GameCard({gameTitle, gameGenre, gameImage}) {
+
   return (
       <div className='game-card'>
           <h2>{gameTitle}</h2>
+          <button className="remove-game-button">X</button>
           <h3>{gameGenre}</h3>
           <img src={gameImage} alt={gameTitle} />
           <select name="" id="">

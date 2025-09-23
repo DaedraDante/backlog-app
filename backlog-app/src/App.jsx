@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import GameCard from './GameCard'
 import gamesData from './GameObjects'
+import { userGameList } from './GameObjects'
 import SearchBar from './Searchbar'
 
 function App() {
@@ -14,7 +15,12 @@ function App() {
   const handleAddGameButton = () => {
     setIsSearchBarVisible(true);
     console.log(isSearchBarVisible);
-  }
+  };
+  // function to remove a game
+  const handleRemoveGameButton = () => {
+    alert("hello")
+  };
+
 
   // jsx return
   return (
@@ -24,6 +30,7 @@ function App() {
                     isSearchBarVisible={isSearchBarVisible}
                     setIsSearchBarVisible={setIsSearchBarVisible}
                     handleAddGameButton={handleAddGameButton}
+                    gamesData={gamesData}
                     /> : null}
         <h1 className='app-title'>A place for your completionist needs</h1>
         <div className='game-list-container'>
@@ -33,7 +40,7 @@ function App() {
             <h4>You logged {gamesNumber} games</h4>
           </div>
           <div className='game-list'>
-              {gamesData.map((item) => (
+              {userGameList.map((item) => (
                 <GameCard 
                   key={item.id}
                   gameTitle={item.gameTitle}
