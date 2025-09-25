@@ -6,11 +6,13 @@ import { userGameList } from './GameObjects'
 import SearchBar from './Searchbar'
 
 function App() {
+
   // variables 
-  const [gamesNumber, setGamesNumber] = useState(gamesData.length);
+  const [gamesNumber, setGamesNumber] = useState(userGameList.length);
   const [isSearchBarVisible,setIsSearchBarVisible] = useState(false);
 
   // functions 
+
   // function to show search bar
   const handleAddGameButton = () => {
     setIsSearchBarVisible(true);
