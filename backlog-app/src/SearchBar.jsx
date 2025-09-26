@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRef } from "react";
 
-function SearchBar({gamesData,handleAddGameButton,isSearchBarVisible,setIsSearchBarVisible}) {
+function SearchBar({gameList,setUserGameList,userGameList,handleAddGameButton,isSearchBarVisible,setIsSearchBarVisible}) {
 
   const [gameQuery, setGameQuery] = useState("");
   const inputRef = useRef(null)
@@ -20,21 +20,25 @@ function SearchBar({gamesData,handleAddGameButton,isSearchBarVisible,setIsSearch
       setGameQuery("");
   };
 
+  // function to add game to user game list
+  const addGameToList = (id,gameTitle,gameGenre,gameImage) => {
+      console.log(`test ${id} ${gameTitle} ${gameGenre} ${gameImage}`)
+      setUserGameList([
+        ...userGameList,
+       {id:id,gameTitle:gameTitle,gameGenre:gameGenre,gameImage:gameImage}
+      ])
+  }
+
     // function to get the filtered games using the gameTitle key
-  const getFilteredgamesData = (gameQuery, gamesData) => {
+  const getFilteredgameList = (gameQuery, gameList) => {
     if(!gameQuery) {
-      return gamesData;
+      return gameList;
     }
-    return gamesData.filter((game) => game.gameTitle.toLowerCase().includes(gameQuery.toLowerCase()));
+    return gameList.filter((game) => game.gameTitle.toLowerCase().includes(gameQuery.toLowerCase()));
   };
 
-  const filteredgamesData = getFilteredgamesData(gameQuery, gamesData)
+  const filteredgameList = getFilteredgameList(gameQuery, gameList)
   
-    // function to focus on the search bar when isSearchBarVisible is true
-  const focusToSearchBar = () => {
-
-  };
-
   // jsx 
     return (
         <div className="search-bar">
@@ -49,8 +53,8 @@ function SearchBar({gamesData,handleAddGameButton,isSearchBarVisible,setIsSearch
              onChange={(e) => setGameQuery(e.target.value)}
              />
              <div className="search-bar-game-list">
-                {filteredgamesData.map((value) => (
-                  <div className="search-bar-game-list-section">
+                {filteredgameList.map((value) => (
+                  <div className="search-bar-game-list-section" onClick={() => addGameToList(value.id,value.gameTitle,value.gameGenre,value.gameImage)}>
                     <h2 key={value.gameTitle}>{value.gameTitle}</h2>
                   </div> 
                 ))}

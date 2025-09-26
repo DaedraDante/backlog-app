@@ -223,7 +223,7 @@ body {
   background: var(--primary-gradient-2);
   transform: scale(1.02);
   transition: all 0.35s ease;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 .search-bar-game-list-section h2 {
   position: relative;
