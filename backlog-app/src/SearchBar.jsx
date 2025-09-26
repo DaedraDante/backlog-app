@@ -22,11 +22,12 @@ function SearchBar({gameList,setUserGameList,userGameList,handleAddGameButton,is
 
   // function to add game to user game list
   const addGameToList = (id,gameTitle,gameGenre,gameImage) => {
+    setIsSearchBarVisible(false);
       console.log(`test ${id} ${gameTitle} ${gameGenre} ${gameImage}`)
       setUserGameList([
         ...userGameList,
        {id:id,gameTitle:gameTitle,gameGenre:gameGenre,gameImage:gameImage}
-      ])
+      ]);
   }
 
     // function to get the filtered games using the gameTitle key
