@@ -233,7 +233,7 @@ function App() {
                     {isSearchBarVisible ? <SearchBar 
                     isSearchBarVisible={isSearchBarVisible}
                     setIsSearchBarVisible={setIsSearchBarVisible}
-                    handleAddGameButton={handleAddGameButton}
+                    han dleAddGameButton={handleAddGameButton}
                     gameList={gameList}
                     gamesNumber={gamesNumber}
                     userGameList={userGameList}
