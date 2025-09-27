@@ -188,26 +188,17 @@ function App() {
     gameImage: 'https://images.igdb.com/igdb/image/upload/t_cover_big_2x/coa7oc.jpg'
   }
   ]);
-  const [userGameList,setUserGameList] = useState([
-  {
-    id: 1,
-    gameTitle: 'God of War 2018',
-    gameGenre: 'Hack N Slash',
-    gameImage: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.jpg'
-  },
-  {
-    id: 2,
-    gameTitle: 'Dead Cells',
-    gameGenre: 'Roguelike',
-    gameImage: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co7jfv.jpg'
-  },
-  {
-    id: 3,
-    gameTitle: 'Minecraft',
-    gameGenre: 'Sandbox',
-    gameImage: 'https://upload.wikimedia.org/wikinews/en/7/7a/Minecraft_game_cover.jpeg'
-  }
-  ]);
+  const [userGameList,setUserGameList] = useState(() => {
+    const storedGameList = localStorage.getItem("userGameList");
+    return storedGameList ? JSON.parse(storedGameList) : [];
+  });
+
+    //use effect hook to add usergamelist to local storage
+  useEffect(() => {
+    localStorage.setItem("userGameList",JSON.stringify(userGameList))
+  },[userGameList]);
+
+
   const gamesNumber = userGameList.length
   const [isSearchBarVisible,setIsSearchBarVisible] = useState(false);
 
@@ -216,7 +207,6 @@ function App() {
   // function to show search bar
   const handleAddGameButton = () => {
     setIsSearchBarVisible(true);
-    console.log(isSearchBarVisible);
   };
   // function to remove a game
   const removeGame = (id) => {
@@ -233,7 +223,7 @@ function App() {
                     {isSearchBarVisible ? <SearchBar 
                     isSearchBarVisible={isSearchBarVisible}
                     setIsSearchBarVisible={setIsSearchBarVisible}
-                    han dleAddGameButton={handleAddGameButton}
+                    handleAddGameButton={handleAddGameButton}
                     gameList={gameList}
                     gamesNumber={gamesNumber}
                     userGameList={userGameList}
