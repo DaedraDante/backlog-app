@@ -208,7 +208,7 @@ function App() {
     gameImage: 'https://upload.wikimedia.org/wikinews/en/7/7a/Minecraft_game_cover.jpeg'
   }
   ]);
-  const [gamesNumber, setGamesNumber] = useState(userGameList.length);
+  const gamesNumber = userGameList.length
   const [isSearchBarVisible,setIsSearchBarVisible] = useState(false);
 
   // functions 
@@ -219,8 +219,10 @@ function App() {
     console.log(isSearchBarVisible);
   };
   // function to remove a game
-  const handleRemoveGameButton = () => {
-    alert("hello")
+  const removeGame = (id) => {
+    setUserGameList(
+      userGameList.filter(a => a.id!== id)
+    )
   };
 
 
@@ -233,10 +235,13 @@ function App() {
                     setIsSearchBarVisible={setIsSearchBarVisible}
                     handleAddGameButton={handleAddGameButton}
                     gameList={gameList}
+                    gamesNumber={gamesNumber}
                     userGameList={userGameList}
                     setUserGameList={setUserGameList}
                     /> : null}
-        <h1 className='app-title'>A place for your completionist needs</h1>
+        <h1 className='app-title'>yourGameLibrary
+          
+        </h1>
         <div className='game-list-container'>
           <button className='add-game-button' onClick={handleAddGameButton}>Add a game</button>
           <div className='game-list-title'>
@@ -245,11 +250,13 @@ function App() {
           </div>
           <div className='game-list'>
               {userGameList.map((item) => (
-                <GameCard 
+                <GameCard
                   key={item.id}
+                  id={item.id}
                   gameTitle={item.gameTitle}
                   gameGenre={item.gameGenre}
                   gameImage={item.gameImage}
+                  onGameRemoval={removeGame}
                 />
               ))}
           </div>

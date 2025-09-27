@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRef } from "react";
 
-function SearchBar({gameList,setUserGameList,userGameList,handleAddGameButton,isSearchBarVisible,setIsSearchBarVisible}) {
+function SearchBar({gamesNumber,setGamesNumber,gameList,setUserGameList,userGameList,handleAddGameButton,isSearchBarVisible,setIsSearchBarVisible}) {
 
   const [gameQuery, setGameQuery] = useState("");
   const inputRef = useRef(null)
@@ -22,12 +22,16 @@ function SearchBar({gameList,setUserGameList,userGameList,handleAddGameButton,is
 
   // function to add game to user game list
   const addGameToList = (id,gameTitle,gameGenre,gameImage) => {
+    //hides search bar
     setIsSearchBarVisible(false);
+    //adds selected game from search bar to usergamelist array
       console.log(`test ${id} ${gameTitle} ${gameGenre} ${gameImage}`)
       setUserGameList([
         ...userGameList,
        {id:id,gameTitle:gameTitle,gameGenre:gameGenre,gameImage:gameImage}
       ]);
+      //updates showed count of usergamelist array
+      setGamesNumber(prevGamesNumber => prevGamesNumber + 1);
   }
 
     // function to get the filtered games using the gameTitle key
