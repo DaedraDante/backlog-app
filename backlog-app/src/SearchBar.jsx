@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRef } from "react";
 
-function SearchBar({gamesNumber,setGamesNumber,gameList,setUserGameList,userGameList,handleAddGameButton,isSearchBarVisible,setIsSearchBarVisible}) {
+function SearchBar({gamesNumber,gameList,setUserGameList,userGameList,handleAddGameButton,isSearchBarVisible,setIsSearchBarVisible}) {
 
   const [gameQuery, setGameQuery] = useState("");
   const inputRef = useRef(null)
@@ -30,8 +30,6 @@ function SearchBar({gamesNumber,setGamesNumber,gameList,setUserGameList,userGame
         ...userGameList,
        {id:id,gameTitle:gameTitle,gameGenre:gameGenre,gameImage:gameImage}
       ]);
-      //updates showed count of usergamelist array
-      setGamesNumber(prevGamesNumber => prevGamesNumber + 1);
   }
 
     // function to get the filtered games using the gameTitle key
