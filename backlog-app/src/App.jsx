@@ -187,7 +187,7 @@ function App() {
     gameGenre: 'Shooter',
     gameImage: 'https://images.igdb.com/igdb/image/upload/t_cover_big_2x/coa7oc.jpg'
   }
-  ]);
+]);
   const [userGameList,setUserGameList] = useState(() => {
     const storedGameList = localStorage.getItem("userGameList");
     return storedGameList ? JSON.parse(storedGameList) : [];

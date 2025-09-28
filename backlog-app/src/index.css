@@ -87,12 +87,20 @@ body {
   align-items: center;
   justify-content: flex-start;
   transition: transform 0.2s, box-shadow 0.2s;
+  min-width: 0;      /* Allow children to shrink */
 }
 .game-card h2 {
   font-size: 2rem;
   margin: 10px 0;
   margin-bottom: -5px;
   color: var(--text-color);
+  width: 100%;          /* Constrain to card width */
+  white-space: nowrap;  /* Prevent wrapping */
+  overflow: hidden;     /* Hide overflowed text */
+  text-overflow: ellipsis; /* Add "..." */
+  text-align: center;   /* Keep text visually centered */
+  display: block;
+  box-sizing: border-box;
 }
 .game-card h3 {
   font-size: 1.2rem;
@@ -100,15 +108,25 @@ body {
   color: var(--text-color);
 }
 .remove-game-button {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
+  position: absolute;         /* Stick it inside the card */
+  top: 10px;                  /* Adjust spacing from top */
+  right: 10px;                /* Adjust spacing from right */
+  width: 30px;
+  height: 30px;
+  border: none;       /* Circle shape */
+  background-color:var(--primary-color); /* Subtle background */
+  color: var(--text-color);               /* "X" color */
+  font-size: 1.2rem;
+  font-weight: bold;
   cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  z-index: 1;     
+}
+.remove-game-button:hover {
+  background-color: rgba(255, 0, 0, 0.7); /* Red hover */
 }
 .game-card select {
   margin-top: 10px;
