@@ -63,9 +63,20 @@ function SearchBar({gamesNumber,gameList,setUserGameList,userGameList,handleAddG
              />
              <div className="search-bar-game-list">
                 {filteredgameList.map((value) => (
-                  <div className="search-bar-game-list-section" onClick={() => addGameToList(value.id,value.gameTitle,value.gameGenre,value.gameImage)}>
+                  <div
+                    className="search-bar-game-list-section"
+                    onClick={() =>
+                      addGameToList(
+                        "Select status", // default status
+                        value.id,
+                        value.gameTitle,
+                        value.gameGenre,
+                        value.gameImage
+                      )
+                    }
+                  >
                     <h2 key={value.gameTitle}>{value.gameTitle}</h2>
-                  </div> 
+                  </div>
                 ))}
              </div>
           </div>

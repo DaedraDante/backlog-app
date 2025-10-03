@@ -287,6 +287,7 @@ function App() {
                   gameTitle={item.gameTitle}
                   gameGenre={item.gameGenre}
                   gameImage={item.gameImage}
+                  gameStatus={item.gameStatus}
                   onGameRemoval={removeGame}
                   grabSelectValue={grabSelectValue}
                 />
