@@ -21,17 +21,17 @@ function SearchBar({gamesNumber,gameList,setUserGameList,userGameList,handleAddG
   };
 
   // function to add game to user game list
-  const addGameToList = (id,gameTitle,gameGenre,gameImage) => {
+  const addGameToList = (gameStatus,id,gameTitle,gameGenre,gameImage) => {
 
     //hides search bar
     setIsSearchBarVisible(false);
 
     //adds selected game from search bar to usergamelist array
-      console.log(`test ${id} ${gameTitle} ${gameGenre} ${gameImage}`)
+      console.log(`test ${id} ${gameStatus} ${gameTitle} ${gameGenre} ${gameImage}`)
       if(!userGameList.some(game => game.id === id)) {
           setUserGameList([
         ...userGameList,
-       {id:id,gameTitle:gameTitle,gameGenre:gameGenre,gameImage:gameImage}
+       {gameStatus:gameStatus,id:id,gameTitle:gameTitle,gameGenre:gameGenre,gameImage:gameImage}
       ]);
       } else {
         alert("You already have that game in your collection");
